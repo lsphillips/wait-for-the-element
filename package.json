@@ -54,7 +54,7 @@
 
     "scripts" :
     {
-        "lint" : "eslint src/**/*.js tests/**/*.js",
+        "lint" : "eslint 'src/**/*.js' 'tests/**/*.js'",
         "unit" : "karma start --single-run",
         "test" : "npm run lint && npm run unit"
     },
