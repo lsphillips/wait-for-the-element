@@ -1,0 +1,11 @@
+# Files
+# -----------------
+
+.eslintrc
+.gitignore
+.travis.yml
+
+# Directories
+# -----------------
+
+/tests

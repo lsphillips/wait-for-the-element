@@ -1,0 +1,27 @@
+# Environment
+# -------------------------------------
+
+dist: trusty
+addons:
+  chrome: stable
+  firefox: latest
+sudo: required
+
+# Build
+# -------------------------------------
+
+language: node_js
+node_js:
+  - "9"
+
+# Deployment
+# -------------------------------------
+
+deploy:
+  provider: npm
+  on:
+    tags: true
+    node: "9"
+  api_key:
+    secure:
+  email: "lsphillips.mail@gmail.com"
