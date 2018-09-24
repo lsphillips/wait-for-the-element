@@ -7,8 +7,8 @@
  *
  * @returns {Element} The matching element from the mutation, otherwise null.
  *
- * @param {MutationRecord} The DOM mutation.
- * @param {String}         The selector that the element must match.
+ * @param {MutationRecord} mutation The DOM mutation.
+ * @param {String}         selector The selector that the element must match.
  */
 function getMatchingElementFromMutation  (mutation, selector)
 {

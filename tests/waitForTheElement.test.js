@@ -51,7 +51,7 @@ describe('function waitForTheElement(selector, options)', function ()
 
 		it('shall return a promise that will be fulfulled with the first matching element that is in `options.scope`', function ()
 		{
-			let scope = document.querySelector('.parent');
+			let scope = document.querySelector('#parent');
 
 			// Act & Assert.
 			return expect(
