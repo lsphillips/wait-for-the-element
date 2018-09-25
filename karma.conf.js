@@ -31,7 +31,7 @@ module.exports = function (config)
 
 		client :
 		{
-			mocha : { timeout : 5000 }
+			mocha : { timeout : 10000 }
 		},
 
 		browserify : { debug : true }

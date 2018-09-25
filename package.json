@@ -1,70 +1,50 @@
 {
-    "name" : "wait-for-the-element",
-
-    "version" : "1.0.0",
-
-    "description" : "A utility function that will fetch an element by waiting for it.",
-
-    "author" :
-    {
-        "name" : "Luke Phillips",
-        "email" : "lsphillips.mail@gmail.com"
+    "name": "wait-for-the-element",
+    "version": "2.0.0",
+    "description": "A utility that will fetch an element by waiting for it to exist.",
+    "author": {
+        "name": "Luke Phillips",
+        "email": "lsphillips.mail@gmail.com"
     },
-
-    "keywords" :
-    [
+    "keywords": [
         "wait",
         "element",
         "selector"
     ],
-
-    "homepage" : "https://github.com/lsphillips/WaitForTheElement",
-
-    "bugs" :
-    {
-        "url" : "https://github.com/lsphillips/WaitForTheElement/issues"
+    "homepage": "https://github.com/lsphillips/WaitForTheElement",
+    "bugs": {
+        "url": "https://github.com/lsphillips/WaitForTheElement/issues"
     },
-
-    "devDependencies" :
-    {
-        "browserify" : "16.2.2",
-        "mocha" : "5.2.0",
-        "chai" : "4.1.2",
-        "chai-as-promised" : "7.1.1",
-        "eslint" : "5.6.0",
-        "eslint-plugin-import" : "2.14.0",
-        "eslint-plugin-promise" : "3.8.0",
-        "eslint-config-protect-me-from-my-stupidity" : "~2.1.1",
-        "karma" : "3.0.0",
-        "karma-mocha" : "1.3.0",
-        "karma-browserify" : "5.3.0",
-        "karma-source-map-support" : "1.3.0",
-        "karma-chrome-launcher" : "2.2.0",
-        "karma-firefox-launcher" : "1.1.0",
-        "timeout-as-promise" : "1.0.0"
+    "devDependencies": {
+        "browserify": "16.2.3",
+        "mocha": "5.2.0",
+        "chai": "4.1.2",
+        "chai-as-promised": "7.1.1",
+        "eslint": "5.6.0",
+        "eslint-plugin-import": "2.14.0",
+        "eslint-plugin-promise": "3.8.0",
+        "eslint-config-protect-me-from-my-stupidity": "~2.1.1",
+        "karma": "3.0.0",
+        "karma-mocha": "1.3.0",
+        "karma-browserify": "5.3.0",
+        "karma-source-map-support": "1.3.0",
+        "karma-chrome-launcher": "2.2.0",
+        "karma-firefox-launcher": "1.1.0",
+        "timeout-as-promise": "1.0.0"
     },
-
-    "main" : "src/waitForTheElement.js",
-
-    "repository" :
-    {
-        "type" : "git",
-        "url" : "https://github.com/lsphillips/WaitForTheElement.git"
+    "main": "src/waitForTheElement.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lsphillips/WaitForTheElement.git"
     },
-
-    "scripts" :
-    {
-        "lint" : "eslint 'src/**/*.js' 'tests/**/*.js'",
-        "unit" : "karma start --single-run",
-        "test" : "npm run lint && npm run unit"
+    "scripts": {
+        "lint": "eslint 'src/**/*.js' 'tests/**/*.js'",
+        "unit": "karma start --single-run",
+        "test": "npm run lint && npm run unit"
     },
-
-    "license" : "MIT",
-
-    "engines" :
-    {
-        "node" : ">=7.0.0"
+    "license": "MIT",
+    "engines": {
+        "node": ">=7.0.0"
     },
-
-    "types" : "waitForTheElement.d.ts"
+    "types": "waitForTheElement.d.ts"
 }

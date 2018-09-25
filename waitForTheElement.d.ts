@@ -6,4 +6,8 @@ export interface WaitForTheElementOptions
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-export default function waitForTheElement<T> (selector : string, options? : WaitForTheElementOptions) : Promise<T | null>;
+export function waitForTheElement<T> (selector : string, options? : WaitForTheElementOptions) : Promise<T>;
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+export function tryAndWaitForTheElement<T> (selector : string, options? : WaitForTheElementOptions) : Promise<T | null>;
