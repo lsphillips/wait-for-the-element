@@ -45,7 +45,7 @@ if (element === null)
 
 ### Selectors
 
-All CSS selectors supported by `document.querySelector()` are supported. If the selector results in multiple elements, only the first match will be returned.
+All CSS selectors supported by `document.querySelector()` are supported. If the selector matches multiple elements, only the first match will be returned.
 
 ### Options
 

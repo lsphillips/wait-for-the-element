@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Added
 
-  - Introduced the `tryAndWaitForTheElement()` function that will return `null` instead of throwing an error when a matching element is not found.
+  - Introduced the `tryAndWaitForTheElement()` function that will return `null` instead of throwing an error when a matching element is not found in time.
 
 ## [1.0.0] (2018-09-25)
 

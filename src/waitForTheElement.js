@@ -128,7 +128,7 @@ function waitForTheElement (selector, {
  * Example usage:
  *
  * ```
- * let element = await tryWaitingForTheElement('.element-that-may-appear-later', {
+ * let element = await tryAndWaitForTheElement('.element-that-may-appear-later', {
  *     timeout : 5000
  * });
  *
