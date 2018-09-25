@@ -48,7 +48,7 @@ All CSS selectors supported by `document.querySelector()` are supported. If the 
 
 ### Compatibility
 
-This utility uses mutation observers to improve performance, which are subject to [browser support](https://caniuse.com/#feat=mutationobserver).
+This project uses mutation observers to improve performance, which are subject to [browser support](https://caniuse.com/#feat=mutationobserver).
 
 ## Getting started
 
