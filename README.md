@@ -7,16 +7,12 @@ A utility that will fetch an element by waiting for it to exist.
 
 ## Usage
 
-This utility makes use of mutation observers, which is subject to [browser support](https://caniuse.com/#feat=mutationobserver).
-
-Example usage:
-
 ``` js
 const { waitForTheElement } = require('wait-for-the-element');
 
 try
 {
-    await waitForTheElement('.element-that-may-appear-later', {
+    let element = await waitForTheElement('.element-that-may-appear-later', {
         timeout : 5000
     });
 }
@@ -26,9 +22,7 @@ catch (error)
 }
 ```
 
-If a match is not found in time, an error will be thrown. Alternatively, you can use `tryAndWaitForTheElement()` which will return `null` if a match is not found.
-
-Example usage:
+If a match is not found in time, an error will be thrown. Alternatively, you can use `tryAndWaitForTheElement()` which will return `null` if a match is not found. For example:
 
 ``` js
 const { tryAndWaitForTheElement } = require('wait-for-the-element');
@@ -51,6 +45,10 @@ All CSS selectors supported by `document.querySelector()` are supported. If the 
 
   - `timeout` - Determines the maximum amount of time you want to wait for (in milliseconds). Defaults to 2.5 seconds.
   - `scope` - Determines the scope you want to search in. Defaults to the entire document.
+
+### Compatibility
+
+This utility uses mutation observers to improve performance, which are subject to [browser support](https://caniuse.com/#feat=mutationobserver).
 
 ## Getting started
 

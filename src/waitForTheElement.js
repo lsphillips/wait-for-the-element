@@ -49,7 +49,7 @@ function getMatchingElementFromMutation  (mutation, selector)
  * ```
  * try
  * {
- *     await waitForTheElement('.element-that-may-appear-later', {
+ *     let element = await waitForTheElement('.element-that-may-appear-later', {
  *         timeout : 5000
  *     });
  * }
