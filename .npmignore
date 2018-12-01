@@ -1,9 +1,12 @@
 # Files
 # -----------------
 
+.npmrc
 .eslintrc
+.editorconfig
 .gitignore
 .travis.yml
+karma.conf.js
 
 # Directories
 # -----------------
