@@ -1,7 +1,7 @@
 {
     "name" : "wait-for-the-element",
 
-    "version" : "2.0.0",
+    "version" : "2.1.0",
 
     "description" : "A utility that will fetch an element by waiting for it to exist.",
 
