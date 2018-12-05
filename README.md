@@ -12,13 +12,13 @@ const { waitForTheElement } = require('wait-for-the-element');
 
 try
 {
-    let element = await waitForTheElement('.element-that-may-appear-later', {
-        timeout : 5000
-    });
+  let element = await waitForTheElement('.selector-for-an-element-that-may-appear-later', {
+    timeout : 5000
+  });
 }
 catch (error)
 {
-    throw new Error('Took more than 5 seconds to find the element.');
+  throw new Error('Took more than 5 seconds to find the element.');
 }
 ```
 
@@ -27,13 +27,13 @@ If a match is not found in time, an error will be thrown. Alternatively, you can
 ``` js
 const { tryAndWaitForTheElement } = require('wait-for-the-element');
 
-let element = await tryAndWaitForTheElement('.element-that-may-appear-later', {
-    timeout : 5000
+let element = await tryAndWaitForTheElement('.selector-for-an-element-that-may-appear-later', {
+  timeout : 5000
 });
 
 if (element === null)
 {
-    console.log('Took more than 5 seconds to find the element.');
+  console.log('Took more than 5 seconds to find the element.');
 }
 ```
 
@@ -43,12 +43,12 @@ All CSS selectors supported by `document.querySelector()` are supported. If the 
 
 ### Options
 
-  - `timeout` - Determines the maximum amount of time you want to wait for (in milliseconds). Defaults to 2.5 seconds.
-  - `scope` - Determines the scope you want to search in. Defaults to the entire document.
+  - `timeout` - The maximum amount of time (in milliseconds) to wait for a matching element to exist. Defaults to 2.5 seconds.
+  - `scope` - The root element to start searching from. Defaults to the entire document.
 
 ### Compatibility
 
-This project uses mutation observers to improve performance, which are subject to [browser support](https://caniuse.com/#feat=mutationobserver).
+This project uses mutation observers to improve performance, which is subject to [browser support](https://caniuse.com/#feat=mutationobserver).
 
 ## Getting started
 
