@@ -5,7 +5,15 @@
 .eslintrc
 .editorconfig
 .gitignore
+
+# Travis
+# -----------------
+
 .travis.yml
+
+# Karma
+# -----------------
+
 karma.conf.js
 
 # Directories

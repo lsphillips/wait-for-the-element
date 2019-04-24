@@ -1,27 +1,9 @@
-# Environment
-# -------------------------------------
-
 dist: trusty
 addons:
   chrome: stable
   firefox: latest
 sudo: required
 
-# Build
-# -------------------------------------
-
 language: node_js
 node_js:
   - "10"
-
-# Deployment
-# -------------------------------------
-
-deploy:
-  provider: npm
-  on:
-    tags: true
-    node: "10"
-  api_key:
-    secure: "qjaFnTmff3JOgV1nngozqnI5kYuVdXOukRHRW4UfhTiibJXUlZ1bZJz76gkB5VC1biWIo53Ktmt/6VM6nC9a4R/6HhgR6g9p+P414so3Zl68tMMm8GAxRmLWePhD2ze3Mr/+Gxk4sMMZs13PgyBvug5a2093bxyiIGyWeBi77CcYtdaupacmb6j5ISYoBWGFqHI6P+M1s3I45WA2/uPBguCoKh75+/gNw9qmuGWzSVX/X9VSEUT9pyrCCVWgJCeKc3tHcGQyZKAdo6LtNOOdUxcAD0nv/k7p44rm7eog4M8+NWuoQDEow6mt2+boHRx1I9YBVruy9M/I0XSwO85t73+fk19e12Do8hjYVX+7UPTKswaueKXTrISZJ3N8cnH08zpg7QiamxN/dHRmRKG7D5UZZBsKjUCEndO1LhSuudwOVSm8vd1Y8MQ1E2pRpajr/h7WY4WgKE+ojCRXQ0LBkPtjxzC5SYJ2yf3fU+6ooS7smSxl1t3v7uWQ20cKUHiePCaXDuRPfr6tMMjmHxGqgFZrTA/JOHmydaPy+4Vbfnj+lAuZf+HfXPpowMSvvTBGZrWAyawAykfTAloXB4wKPCn0EMcjJ09XmQK3LiyQwYfv3ZVTsAUTqRHG7B6+Pbg3A8H6KESQ9s4ykLPQEMAecQ/FWKsJrLI+mOzlkiKkwDw="
-  email: "lsphillips.mail@gmail.com"
