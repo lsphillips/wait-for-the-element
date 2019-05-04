@@ -1,7 +1,7 @@
 # WaitForTheElement
 
 [![Available from NPM](https://img.shields.io/npm/v/wait-for-the-element.svg?maxAge=900)](https://www.npmjs.com/package/wait-for-the-element)
-[![Built using Travis](https://img.shields.io/travis/com/lsphillips/WaitForTheElement/master.svg?maxAge=900)](https://travis-ci.org/lsphillips/WaitForTheElement)
+[![Built using Travis](https://img.shields.io/travis/com/lsphillips/WaitForTheElement/master.svg?maxAge=900)](https://travis-ci.com/lsphillips/WaitForTheElement)
 
 A utility that will fetch an element by waiting for it to exist.
 
