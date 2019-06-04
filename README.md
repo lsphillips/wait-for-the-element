@@ -52,24 +52,32 @@ This project uses mutation observers to improve performance, which is subject to
 
 ## Getting started
 
-This project is available through the Node Package Manager (NPM), so you can install it like so:
+This module is available through the Node Package Manager (NPM):
 
 ```
 npm install wait-for-the-element
 ```
 
-This is a `commonjs` module; so you will need to use a bundler.
-
 ## Development
 
-This project doesn't have much of a build process. It does have tests though; which you can run like so:
+### Building
+
+You can build a browser entry point that is ES5 compatible and minified:
 
 ``` sh
-npm test
+npm run build
 ```
 
-This also runs code quality checks using ESLint. Please refer to the `.eslintrc` files to familiar yourself with the rules.
+### Testing
+
+This module also has a robust test suite:
+
+``` sh
+npm run test
+```
+
+This includes a code quality check using ESLint. Please refer to the `.eslintrc` files to familiar yourself with the rules.
 
 ## License
 
-This project is released under the MIT license.
+This project is released under the [MIT license](LICENSE.txt).

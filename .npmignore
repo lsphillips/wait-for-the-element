@@ -16,7 +16,12 @@
 
 karma.conf.js
 
+# Rollup
+# -----------------
+
+rollup.config.js
+
 # Directories
 # -----------------
 
-/tests
+/test

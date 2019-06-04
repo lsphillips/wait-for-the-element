@@ -2,20 +2,32 @@
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-module.exports = function (config)
+const build = require('./rollup.config');
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+module.exports = function test (config)
 {
 	config.set(
 	{
 		files :
 		[
-			'tests/waitForTheElement.test.js'
+			'test/specs/**/*.spec.js'
 		],
+
+		preprocessors :
+		{
+			'test/**/*.js' : ['rollup']
+		},
 
 		frameworks :
 		[
-			'browserify',
-			'mocha',
-			'source-map-support'
+			'mocha'
+		],
+
+		reporters :
+		[
+			'mocha'
 		],
 
 		browsers :
@@ -24,16 +36,23 @@ module.exports = function (config)
 			'FirefoxHeadless'
 		],
 
-		preprocessors :
-		{
-			'tests/waitForTheElement.test.js' : ['browserify']
-		},
+		concurrency : 1,
 
 		client :
 		{
-			mocha : { timeout : 10000 }
+			mocha :
+			{
+				timeout : 5000
+			}
 		},
 
-		browserify : { debug : true }
+		mochaReporter :
+		{
+			showDiff : true
+		},
+
+		rollupPreprocessor : build({
+			forTest : true
+		})
 	});
 };
