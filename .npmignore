@@ -24,4 +24,4 @@ rollup.config.js
 # Directories
 # -----------------
 
-/test
+/tests

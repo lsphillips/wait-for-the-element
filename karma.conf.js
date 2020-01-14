@@ -12,12 +12,12 @@ module.exports = function test (config)
 	{
 		files :
 		[
-			'test/specs/**/*.spec.js'
+			'tests/specs/**/*.spec.js'
 		],
 
 		preprocessors :
 		{
-			'test/**/*.js' : ['rollup']
+			'tests/**/*.js' : ['rollup']
 		},
 
 		frameworks :
