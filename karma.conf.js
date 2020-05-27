@@ -32,8 +32,7 @@ module.exports = function test (config)
 
 		browsers :
 		[
-			'ChromeHeadless',
-			'FirefoxHeadless'
+			'ChromeHeadless'
 		],
 
 		concurrency : 1,

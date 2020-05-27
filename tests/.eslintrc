@@ -2,7 +2,7 @@
 	"extends" :
 	[
 		"protect-me-from-my-stupidity",
-		"protect-me-from-my-stupidity/but-let-me-write-stupid-tests"
+		"protect-me-from-my-stupidity/but/let-me-write-stupid-tests"
 	],
 
 	"env" :

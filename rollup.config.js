@@ -5,7 +5,7 @@
 const commonjs   = require('rollup-plugin-commonjs');
 const buble      = require('rollup-plugin-buble');
 const node       = require('rollup-plugin-node-resolve');
-const { uglify } = require('rollup-plugin-uglify');
+const { terser } = require('rollup-plugin-terser');
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -61,7 +61,7 @@ module.exports = function build ({
 		plugins : [
 			...plugins, buble({
 				transforms : { dangerousForOf : true }
-			}), uglify()
+			}), terser()
 		]
 	};
 };
