@@ -1,10 +1,11 @@
+
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 import getMatchingElementFromMutation from './getMatchingElementFromMutation';
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-function waitForTheElement (selector, {
+function waitForTheElementToHide (selector, {
 	timeout = 2500, scope = document
 } = {})
 {
@@ -25,7 +26,7 @@ function waitForTheElement (selector, {
 			{
 				let nodeThatMatches = getMatchingElementFromMutation(mutation, selector);
 
-				if (nodeThatMatches !== null)
+				if (nodeThatMatches === null)
 				{
 					clearTimeout(timer);
 
@@ -56,11 +57,10 @@ function waitForTheElement (selector, {
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-function tryAndWaitForTheElement (selector, options)
+function tryAndWaitForTheElementToHide (selector, options)
 {
-	return waitForTheElement(selector, options).catch(() => null);
+	return waitForTheElementToHide(selector, options).catch(() => null);
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-export { waitForTheElement, tryAndWaitForTheElement };
+export { waitForTheElementToHide, tryAndWaitForTheElementToHide };

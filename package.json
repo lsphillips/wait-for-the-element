@@ -1,77 +1,56 @@
 {
-    "name" : "wait-for-the-element",
-
-    "version" : "2.2.0",
-
-    "description" : "A utility that will fetch an element by waiting for it to exist.",
-
-    "author" :
-    {
-        "name" : "Luke Phillips",
-        "email" : "lsphillips.mail@gmail.com"
+    "name": "wait-for-the-element",
+    "version": "2.2.0",
+    "description": "A utility that will fetch an element by waiting for it to exist.",
+    "author": {
+        "name": "Luke Phillips",
+        "email": "lsphillips.mail@gmail.com"
     },
-
-    "keywords" :
-    [
+    "keywords": [
         "wait",
         "element",
         "selector"
     ],
-
-    "homepage" : "https://github.com/lsphillips/WaitForTheElement",
-
-    "bugs" :
-    {
-        "url" : "https://github.com/lsphillips/WaitForTheElement/issues"
+    "homepage": "https://github.com/lsphillips/WaitForTheElement",
+    "bugs": {
+        "url": "https://github.com/lsphillips/WaitForTheElement/issues"
     },
-
-    "devDependencies" :
-    {
-        "rollup" : "2.23.0",
-        "rollup-plugin-node-resolve" : "5.2.0",
-        "rollup-plugin-commonjs" : "10.1.0",
-        "rollup-plugin-buble" : "0.19.8",
-        "rollup-plugin-terser" : "6.1.0",
-        "mocha" : "8.1.0",
-        "chai" : "4.2.0",
-        "chai-as-promised" : "7.1.1",
-        "eslint" : "6.8.0",
-        "eslint-plugin-import" : "2.22.0",
-        "eslint-plugin-promise" : "4.2.1",
-        "eslint-config-protect-me-from-my-stupidity" : "5.1.0",
-        "karma" : "5.1.1",
-        "karma-mocha" : "2.0.1",
-        "karma-mocha-reporter" : "2.2.5",
-        "karma-rollup-preprocessor" : "7.0.5",
-        "karma-chrome-launcher" : "3.1.0",
-        "timeout-as-promise" : "1.0.0"
+    "devDependencies": {
+        "rollup": "2.23.0",
+        "rollup-plugin-node-resolve": "5.2.0",
+        "rollup-plugin-commonjs": "10.1.0",
+        "rollup-plugin-buble": "0.19.8",
+        "rollup-plugin-terser": "6.1.0",
+        "mocha": "8.1.0",
+        "chai": "4.2.0",
+        "chai-as-promised": "7.1.1",
+        "eslint": "6.8.0",
+        "eslint-plugin-import": "2.22.0",
+        "eslint-plugin-promise": "4.2.1",
+        "eslint-config-protect-me-from-my-stupidity": "5.1.0",
+        "karma": "5.1.1",
+        "karma-mocha": "2.0.1",
+        "karma-mocha-reporter": "2.2.5",
+        "karma-rollup-preprocessor": "7.0.5",
+        "karma-chrome-launcher": "3.1.0",
+        "timeout-as-promise": "1.0.0"
     },
-
-    "main" : "src/waitForTheElement.js",
-
-    "browser" : "waitForTheElement.js",
-
-    "repository" :
-    {
-        "type" : "git",
-        "url" : "https://github.com/lsphillips/WaitForTheElement.git"
+    "main": "src/waitForTheElement.js",
+    "browser": "waitForTheElement.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lsphillips/WaitForTheElement.git"
     },
-
-    "scripts" :
-    {
-        "lint" : "eslint \"src/**/*.js\" \"tests/**/*.js\"",
-        "unit" : "karma start --single-run",
-        "test" : "npm run lint && npm run unit",
-        "build" : "rollup --config",
-        "prepack" : "npm run test && npm run build"
+    "scripts": {
+        "lint": "eslint \"src/**/*.js\" \"tests/**/*.js\"",
+        "unit": "karma start --single-run",
+        "test": "npm run lint && npm run unit",
+        "build": "rollup --config",
+        "prepack": "npm run test && npm run build"
     },
-
-    "license" : "MIT",
-
-    "engines" :
-    {
-        "node" : ">=7.0.0"
+    "license": "MIT",
+    "engines": {
+        "node": ">=7.0.0"
     },
-
-    "types" : "waitForTheElement.d.ts"
+    "types": "waitForTheElement.d.ts"
 }
