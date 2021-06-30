@@ -101,7 +101,7 @@ export function waitForTheElement (selector, {
 			observer.disconnect();
 
 			reject(
-				new Error(`An element does not matche selector ${selector} after ${timeout / 1000} seconds.`)
+				new Error(`An element still does not match selector ${selector} after ${timeout} milliseconds.`)
 			);
 
 		}, timeout);
@@ -150,7 +150,7 @@ export function waitForTheElementToDisappear (selector, {
 			observer.disconnect();
 
 			reject(
-				new Error(`An element still matches selector ${selector} after ${timeout / 1000} seconds.`)
+				new Error(`An element still matches selector ${selector} after ${timeout} milliseconds.`)
 			);
 
 		}, timeout);
