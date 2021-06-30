@@ -1,5 +1,5 @@
-const Class      = /\.(?:[-\w\u{0080}-\u{FFFF}]|\\.)+/u;
-const Id         = /#(?:[-\w\u{0080}-\u{FFFF}]|\\.)+/u;
+const Classes    = /\.(?:[-\w\u{0080}-\u{FFFF}]|\\.)+/u;
+const Ids        = /#(?:[-\w\u{0080}-\u{FFFF}]|\\.)+/u;
 const Attributes = /\[\s*((?:(?:\*|[-\w]*)\|)?(?:[-\w\u{0080}-\u{FFFF}]+))/gu;
 
 const selectorObservationSettings =
@@ -18,42 +18,52 @@ function getObservationSettingsForSelector (selector)
 		return settings;
 	}
 
-	const attributes = [];
-
-	if (
-		Class.test(selector)
-	)
-	{
-		attributes.push('class');
-	}
-
-	if (
-		Id.test(selector)
-	)
-	{
-		attributes.push('id');
-	}
-
-	[...selector.matchAll(Attributes)].forEach(match =>
-	{
-		attributes.push(
-			match[1].replace('|', ':')
-		);
-	});
-
 	settings = selectorObservationSettings[selector] = {
 		attributes : true, subtree : true, childList : true
 	};
 
+	let attributeFilter = [];
+
+	const attributes = selector.matchAll(Attributes);
+
+	for (const [, attribute] of attributes)
+	{
+		// This means we are matching an attribute in any
+		// namespace, we can't do much optimization at this
+		// point.
+		if (
+			attribute.startsWith('*') || attribute.startsWith('|')
+		)
+		{
+			return settings;
+		}
+
+		attributeFilter.push(
+			attribute.replace('|', ':')
+		);
+	}
+
 	if (
-		attributes.length === 0 || attributes.some(a => a.startsWith('*'))
+		Classes.test(selector)
 	)
+	{
+		attributeFilter.push('class');
+	}
+
+	if (
+		Ids.test(selector)
+	)
+	{
+		attributeFilter.push('id');
+	}
+
+	if (attributeFilter.length === 0)
 	{
 		settings.attributes = false;
 	}
 	else
 	{
-		settings.attributeFilter = attributes;
+		settings.attributeFilter = attributeFilter;
 	}
 
 	return settings;
