@@ -3,52 +3,68 @@
 [![Available from NPM](https://img.shields.io/npm/v/wait-for-the-element.svg?maxAge=900)](https://www.npmjs.com/package/wait-for-the-element)
 [![Built using Travis](https://img.shields.io/travis/com/lsphillips/WaitForTheElement/master.svg?maxAge=900)](https://travis-ci.com/lsphillips/WaitForTheElement)
 
-A utility that will fetch an element by waiting for it to exist.
+A utility library that enables you efficiently wait for an element to appear or disappear.
 
 ## Usage
 
+This module can be treated as an ES module:
+
 ``` js
-const { waitForTheElement } = require('wait-for-the-element');
+import { waitForTheElement, waitForTheElementToDisappear } from 'wait-for-the-element';
+```
+
+This module can also be treated as a CommonJS module:
+
+``` js
+const { waitForTheElement, waitForTheElementToDisappear } = require('wait-for-the-element');
+```
+
+### Waiting for an element
+
+``` js
+let element;
 
 try
 {
-  let element = await waitForTheElement('.selector-for-an-element-that-may-appear-later', {
+  element = await waitForTheElement('.target', {
     timeout : 5000
   });
 }
 catch (error)
 {
-  throw new Error('Took more than 5 seconds to find the element.');
+  // After 5 seconds, a matching element still doesn't exist.
 }
 ```
 
-If a match is not found in time, an error will be thrown. Alternatively, you can use `tryAndWaitForTheElement()` which will return `null` if a match is not found. For example:
+**Note:** If the selector matches multiple elements, only the first match will be returned.
+
+### Waiting for an element to disappear
 
 ``` js
-const { tryAndWaitForTheElement } = require('wait-for-the-element');
-
-let element = await tryAndWaitForTheElement('.selector-for-an-element-that-may-appear-later', {
-  timeout : 5000
-});
-
-if (element === null)
+try
 {
-  console.log('Took more than 5 seconds to find the element.');
+  await waitForTheElementToDisappear('.target', {
+    timeout : 5000
+  });
+}
+catch (error)
+{
+  // After 5 seconds, a matching element still exists.
 }
 ```
 
 ### Selectors
 
-All CSS selectors supported by `document.querySelector()` are supported. If the selector matches multiple elements, only the first match will be returned.
+All functions accept CSS selectors supported by `document.querySelector()`.
 
 ### Options
 
-  - `timeout` - The maximum amount of time (in milliseconds) to wait for a matching element to exist. Defaults to 2.5 seconds.
-  - `scope` - The root element to start searching from. Defaults to the entire document.
+All functions accept an optional settings object that control how elements are searched for:
 
-### Compatibility
-
-This project uses mutation observers to improve performance, which is subject to [browser support](https://caniuse.com/#feat=mutationobserver).
+| Options   | Required | Default    | Description                                           |
+| --------- | :------: | :--------: | ----------------------------------------------------- |
+| `timeout` | No       | `2500`     | The maximum amount of time (in milliseconds) to wait. |
+| `scope`   | No       | `document` | The root element to start searching from.             |
 
 ## Getting started
 
@@ -62,7 +78,7 @@ npm install wait-for-the-element
 
 ### Building
 
-You can build a browser entry point that is ES5 compatible and minified:
+You can build UMD and ESM versions of this module that are both ES5 compatible and minified:
 
 ``` sh
 npm run build
@@ -73,7 +89,7 @@ npm run build
 This module also has a robust test suite:
 
 ``` sh
-npm run test
+npm test
 ```
 
 This includes a code quality check using ESLint. Please refer to the `.eslintrc` files to familiar yourself with the rules.

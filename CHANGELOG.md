@@ -2,6 +2,24 @@
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] (2021-06-22)
+
+### Changed
+
+- Change observations are optimized for selectors using attributes; this module will scan your CSS selectors for any attributes and only react to changes of those attributes.
+- Removed unnecessary files from the package making it more lightweight.
+- This module is now transpiled using Babel.
+- The UMD version of this module now exposes itself using the name `wait-for-the-element` instead of `waitForTheElement`.
+
+### Added
+
+- Introduced `waitForTheElementToDisappear()` that will wait for all elements to stop matching a provided selector.
+- Introduced an ESM version of this module that will be used when being imported using `import`.
+
+### Removed
+
+- Removed `tryAndWaitForTheElement()`.
+
 ## [2.2.0] (2019-06-04)
 
 ### Added

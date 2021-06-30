@@ -6,4 +6,10 @@
 # Build
 # -----------------
 
-/waitForTheElement.js
+/wait-for-the-element.js
+/wait-for-the-element.cjs
+
+# Pack
+# -----------------
+
+*.tgz

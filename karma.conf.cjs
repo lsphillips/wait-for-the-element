@@ -2,17 +2,17 @@
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-const build = require('./rollup.config');
+const { buildForTests } = require('./rollup.config.cjs');
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 module.exports = function test (config)
 {
-	config.set(
-	{
+	config.set({
+
 		files :
 		[
-			'tests/specs/**/*.spec.js'
+			'tests/**/*.test.js'
 		],
 
 		preprocessors :
@@ -35,8 +35,6 @@ module.exports = function test (config)
 			'ChromeHeadless'
 		],
 
-		concurrency : 1,
-
 		client :
 		{
 			mocha :
@@ -50,8 +48,6 @@ module.exports = function test (config)
 			showDiff : true
 		},
 
-		rollupPreprocessor : build({
-			forTest : true
-		})
+		rollupPreprocessor : buildForTests()
 	});
 };
