@@ -5,7 +5,7 @@
 
     "type" : "module",
 
-    "description" : "A utility library that enables you efficiently wait for an element to appear or disappear.",
+    "description" : "A utility library that enables you to efficiently wait for an element to appear or disappear.",
 
     "author" :
     {

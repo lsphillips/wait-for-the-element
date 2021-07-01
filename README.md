@@ -3,7 +3,7 @@
 [![Available from NPM](https://img.shields.io/npm/v/wait-for-the-element.svg?maxAge=900)](https://www.npmjs.com/package/wait-for-the-element)
 [![Built using Travis](https://img.shields.io/travis/com/lsphillips/WaitForTheElement/master.svg?maxAge=900)](https://travis-ci.com/lsphillips/WaitForTheElement)
 
-A utility library that enables you efficiently wait for an element to appear or disappear.
+A utility library that enables you to efficiently wait for an element to appear or disappear.
 
 ## Usage
 
