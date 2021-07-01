@@ -21,38 +21,37 @@ describe('function waitForTheElement(selector, options)', function ()
 {
 	describe('when elements matching `selector` already exist', function ()
 	{
-		beforeEach(function ()
-		{
-			document.body.innerHTML = `
-				<div class="target" id="target-1"></div>
-
-				<div id="parent">
-					<div class="target" id="target-2"></div>
-					<div class="target" id="target-3"></div>
-				</div>
-
-				<div class="target" id="target-4"></div>
-			`;
-		});
-
 		it('shall return a promise that will be fulfilled with the first matching element', function ()
 		{
+			// Setup.
+			document.body.innerHTML = `
+				<div class="target" id="target"></div>
+				<div class="target" id="ignore"></div>
+			`;
+
 			// Act & Assert.
 			return expect(
 				waitForTheElement('.target')
-			).to.eventually.have.property('id', 'target-1');
+			).to.eventually.have.property('id', 'target');
 		});
 
 		it('shall return a promise that will be fulfilled with the first matching element this is inside `options.scope`', function ()
 		{
-			const scope = document.querySelector('#parent');
+			document.body.innerHTML = `
+				<div class="target" id="out-of-scope"></div>
+
+				<div id="parent">
+					<div class="target" id="target"></div>
+					<div class="target" id="ignore"></div>
+				</div>
+			`;
 
 			// Act & Assert.
 			return expect(
 				waitForTheElement('.target', {
-					scope
+					scope : document.querySelector('#parent')
 				})
-			).to.eventually.have.property('id', 'target-2');
+			).to.eventually.have.property('id', 'target');
 		});
 	});
 
@@ -86,42 +85,103 @@ describe('function waitForTheElement(selector, options)', function ()
 
 			// Setup.
 			document.body.innerHTML = `
-				<div class="target" id="target-1"></div>
-				<div class="target" id="target-2"></div>
+				<div class="target" id="target"></div>
+				<div class="target" id="ignore"></div>
 			`;
-
-			// Assert.
-			return expect(element).to.eventually.have.property('id', 'target-1');
-		});
-
-		it('shall return a promise that will be fulfilled with a matching element that matched after an attribute change', async function ()
-		{
-			// Setup.
-			document.body.innerHTML = `
-				<div id="target"></div>
-			`;
-
-			// Act.
-			const element = waitForTheElement('[data-name="target"]');
-
-			// Wait.
-			await wait(1000);
-
-			// Setup.
-			document.querySelector('#target').setAttribute('data-name', 'target');
 
 			// Assert.
 			return expect(element).to.eventually.have.property('id', 'target');
 		});
 
-		it('shall return a promise that will be fulfilled with a matching element that is inside `options.scope`', async function ()
+		describe('shall return a promise that will be fulfilled with a matching element that matched after an attribute change', function ()
+		{
+			it('including class attributes', async function ()
+			{
+				// Setup.
+				document.body.innerHTML = `
+					<div id="target" class="ignore"></div>
+				`;
+
+				// Act.
+				const element = waitForTheElement('.target');
+
+				// Wait.
+				await wait(1000);
+
+				// Setup.
+				document.querySelector('#target').setAttribute('class', 'target');
+
+				// Assert.
+				return expect(element).to.eventually.have.property('id', 'target');
+			});
+
+			it('including id attributes', async function ()
+			{
+				// Setup.
+				document.body.innerHTML = `
+					<div id="ignore"></div>
+				`;
+
+				// Act.
+				const element = waitForTheElement('#target');
+
+				// Wait.
+				await wait(1000);
+
+				// Setup.
+				document.querySelector('#ignore').setAttribute('id', 'target');
+
+				// Assert.
+				return expect(element).to.eventually.have.property('id', 'target');
+			});
+
+			it('including miscellaneous attributes', async function ()
+			{
+				// Setup.
+				document.body.innerHTML = `
+					<input type="text" id="target" name="ignore" />
+				`;
+
+				// Act.
+				const element = waitForTheElement('input[name="target"]');
+
+				// Wait.
+				await wait(1000);
+
+				// Setup.
+				document.querySelector('#target').setAttribute('name', 'target');
+
+				// Assert.
+				return expect(element).to.eventually.have.property('id', 'target');
+			});
+
+			it('including data attributes', async function ()
+			{
+				// Setup.
+				document.body.innerHTML = `
+					<div id="target" data-attribute="ignore"></div>
+				`;
+
+				// Act.
+				const element = waitForTheElement('[data-attribute="target"]');
+
+				// Wait.
+				await wait(1000);
+
+				// Setup.
+				document.querySelector('#target').setAttribute('data-attribute', 'target');
+
+				// Assert.
+				return expect(element).to.eventually.have.property('id', 'target');
+			});
+		});
+
+		it('shall return a promise that will be fulfilled with a matching element only found inside `options.scope`', async function ()
 		{
 			// Setup.
 			document.body.innerHTML = `
-				<div id="target-1"></div>
-				<div id="parent">
-
-				</div>
+				<div id="ignore" class="target"></div>
+				<div id="parent"></div>
 			`;
 
 			const scope = document.querySelector('#parent');
@@ -135,15 +195,15 @@ describe('function waitForTheElement(selector, options)', function ()
 			await wait(1000);
 
 			// Setup.
-			document.querySelector('#target-1').setAttribute('class', 'target');
+			document.querySelector('#ignore').setAttribute('class', 'target');
 
 			// Setup.
 			scope.innerHTML = `
-				<div class="target" id="target-2"></div>
+				<div id="target" class="target"></div>
 			`;
 
 			// Assert.
-			return expect(element).to.eventually.have.property('id', 'target-2');
+			return expect(element).to.eventually.have.property('id', 'target');
 		});
 	});
 });
@@ -164,16 +224,14 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 		{
 			// Setup.
 			document.body.innerHTML = `
-				<div class="target"></div>
+				<div id="ignore" class="target"></div>
 				<div id="parent"></div>
 			`;
-
-			const scope = document.querySelector('#parent');
 
 			// Act & Assert.
 			return expect(
 				waitForTheElementToDisappear('.target', {
-					scope
+					scope : document.querySelector('#parent')
 				})
 			).to.be.fulfilled;
 		});
@@ -213,17 +271,17 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 		{
 			// Setup.
 			document.body.innerHTML = `
-				<div class="target"></div>
+				<div id="target"></div>
 			`;
 
 			// Act.
-			const result = waitForTheElementToDisappear('.target');
+			const result = waitForTheElementToDisappear('#target');
 
 			// Wait.
 			await wait(1000);
 
 			// Setup.
-			document.querySelector('.target').remove();
+			document.querySelector('#target').remove();
 
 			// Assert.
 			return expect(result).to.be.fulfilled;
@@ -250,48 +308,109 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 			return expect(result).to.be.rejectedWith(Error);
 		});
 
-		it('shall return a promise that will be fulfilled when no element matches after an attribute change', async function ()
+		describe('shall return a promise that will be fulfilled when no element matches after an attribute change', function ()
 		{
-			// Setup.
-			document.body.innerHTML = `
-				<div id="target" data-name="target"></div>
-			`;
+			it('including class attributes', async function ()
+			{
+				// Setup.
+				document.body.innerHTML = `
+					<div id="target" class="target"></div>
+				`;
 
-			// Act.
-			const result = waitForTheElementToDisappear('[data-name="target"]');
+				// Act.
+				const result = waitForTheElementToDisappear('.target');
 
-			// Wait.
-			await wait(1000);
+				// Wait.
+				await wait(1000);
 
-			// Setup.
-			document.querySelector('#target').setAttribute('data-name', 'bullseye');
+				// Setup.
+				document.querySelector('#target').setAttribute('class', 'ignore');
 
-			// Assert.
-			return expect(result).to.be.fulfilled;
+				// Assert.
+				return expect(result).to.be.fulfilled;
+			});
+
+			it('including id attributes', async function ()
+			{
+				// Setup.
+				document.body.innerHTML = `
+					<div id="target"></div>
+				`;
+
+				// Act.
+				const result = waitForTheElementToDisappear('#target');
+
+				// Wait.
+				await wait(1000);
+
+				// Setup.
+				document.querySelector('#target').setAttribute('id', 'ignore');
+
+				// Assert.
+				return expect(result).to.be.fulfilled;
+			});
+
+			it('including miscellaneous attributes', async function ()
+			{
+				// Setup.
+				document.body.innerHTML = `
+					<input type="text" id="target" name="target" />
+				`;
+
+				// Act.
+				const result = waitForTheElementToDisappear('input[name="target"]');
+
+				// Wait.
+				await wait(1000);
+
+				// Setup.
+				document.querySelector('#target').setAttribute('name', 'ignore');
+
+				// Assert.
+				return expect(result).to.be.fulfilled;
+			});
+
+			it('including data attributes', async function ()
+			{
+				// Setup.
+				document.body.innerHTML = `
+					<div id="target" data-attribute="target"></div>
+				`;
+
+				// Act.
+				const result = waitForTheElementToDisappear('[data-attribute="target"]');
+
+				// Wait.
+				await wait(1000);
+
+				// Setup.
+				document.querySelector('#target').setAttribute('data-attribute', 'ignore');
+
+				// Assert.
+				return expect(result).to.be.fulfilled;
+			});
 		});
 
-		it('shall return a promise that will be fulfilled when all matching elements are removed in `options.scope`', async function ()
+		it('shall return a promise that will be fulfilled when all matching elements are removed from `options.scope`', async function ()
 		{
 			// Setup.
 			document.body.innerHTML = `
-				<div class="target" id="target-1"></div>
+				<div class="target" id="ignore"></div>
 				<div id="parent">
-					<div class="target" id="target-2"></div>
+					<div class="target" id="target"></div>
 				</div>
 			`;
 
-			const scope = document.querySelector('#parent');
-
 			// Act.
 			const result = waitForTheElement('.target', {
-				scope
+				scope : document.querySelector('#parent')
 			});
 
 			// Wait.
 			await wait(1000);
 
 			// Setup.
-			document.querySelector('#target-2').remove();
+			document.querySelector('#target').remove();
 
 			// Assert.
 			return expect(result).to.be.fulfilled;
