@@ -21,7 +21,7 @@ const { waitForTheElement, waitForTheElementToDisappear } = require('wait-for-th
 
 ### Waiting for an element
 
-You can wait for an element matching a provided selector to exist and retrieve it:
+You can wait for an element to match a provided selector and retrieve it:
 
 ``` js
 let element;
@@ -38,11 +38,11 @@ catch (error)
 }
 ```
 
-**Note:** If the selector matches multiple elements, only the first match will be returned.
+**Important Note:** If the selector matches multiple elements, only the first match will be returned.
 
 ### Waiting for an element to disappear
 
-You can wait for an element to stop matching a provided selector:
+You can wait for all elements to stop matching a provided selector:
 
 ``` js
 try
