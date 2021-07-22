@@ -57,22 +57,22 @@ describe('function waitForTheElement(selector, options)', function ()
 
 	describe('when no elements matching `selector` exist', function ()
 	{
-		it('shall throw an error if an element is not matched after 2.5 seconds', function ()
+		it('shall return a promise that will be fulfilled with `null` if an element is not matched after 2.5 seconds', function ()
 		{
 			// Act & Assert.
 			return expect(
 				waitForTheElement('.target')
-			).to.be.rejectedWith(Error);
+			).to.eventually.be.null;
 		});
 
-		it('shall throw an error if an element is not matched after `options.timeout`', function ()
+		it('shall return a promise that will be fulfilled with `null` if an element is not matched after `options.timeout`', function ()
 		{
 			// Act & Assert.
 			return expect(
 				waitForTheElement('.target', {
 					timeout : 4000
 				})
-			).to.be.rejectedWith(Error);
+			).to.eventually.be.null;
 		});
 
 		it('shall return a promise that will be fulfilled with a matching element that was eventually added', async function ()
@@ -212,15 +212,15 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 {
 	describe('when no elements matching `selector` exist', function ()
 	{
-		it('shall return a promise that will be fulfilled', function ()
+		it('shall return a promise that will be fulfilled with `true`', function ()
 		{
 			// Act & Assert.
 			return expect(
 				waitForTheElementToDisappear('.target')
-			).to.be.fulfilled;
+			).to.eventually.be.true;
 		});
 
-		it('shall return a promise that will be fulfilled when no match is found inside `options.scope`', function ()
+		it('shall return a promise that will be fulfilled with `true` when no match is found inside `options.scope`', function ()
 		{
 			// Setup.
 			document.body.innerHTML = `
@@ -233,13 +233,13 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 				waitForTheElementToDisappear('.target', {
 					scope : document.querySelector('#parent')
 				})
-			).to.be.fulfilled;
+			).to.eventually.be.true;
 		});
 	});
 
 	describe('when elements matching `selector` already exist', function ()
 	{
-		it('shall throw an error if an element still matches after 2.5 seconds', function ()
+		it('shall return a promise that will be fulfilled with `false` if an element still matches after 2.5 seconds', function ()
 		{
 			// Setup.
 			document.body.innerHTML = `
@@ -249,10 +249,10 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 			// Act & Assert.
 			return expect(
 				waitForTheElementToDisappear('.target')
-			).to.be.rejectedWith(Error);
+			).to.eventually.be.false;
 		});
 
-		it('shall throw an error if an element still matches after `options.timeout`', function ()
+		it('shall return a promise that will be fulfilled with `false` if an element still matches after `options.timeout`', function ()
 		{
 			// Setup.
 			document.body.innerHTML = `
@@ -264,10 +264,10 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 				waitForTheElementToDisappear('.target', {
 					timeout : 4000
 				})
-			).to.be.rejectedWith(Error);
+			).to.eventually.be.false;
 		});
 
-		it('shall return a promise that will be fulfilled when the matching element is eventually removed', async function ()
+		it('shall return a promise that will be fulfilled with `true` when the matching element is eventually removed', async function ()
 		{
 			// Setup.
 			document.body.innerHTML = `
@@ -284,10 +284,10 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 			document.querySelector('#target').remove();
 
 			// Assert.
-			return expect(result).to.be.fulfilled;
+			return expect(result).to.eventually.be.true;
 		});
 
-		it('shall return a promise that will be fulfilled only when all matching elements are removed', async function ()
+		it('shall return a promise that will be fulfilled with `true` only when all matching elements are removed', async function ()
 		{
 			// Setup.
 			document.body.innerHTML = `
@@ -305,10 +305,10 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 			document.querySelector('.target').remove();
 
 			// Assert.
-			return expect(result).to.be.rejectedWith(Error);
+			return expect(result).to.eventually.be.false;
 		});
 
-		describe('shall return a promise that will be fulfilled when no element matches after an attribute change', function ()
+		describe('shall return a promise that will be fulfilled with `true` when no element matches after an attribute change', function ()
 		{
 			it('including class attributes', async function ()
 			{
@@ -327,7 +327,7 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 				document.querySelector('#target').setAttribute('class', 'ignore');
 
 				// Assert.
-				return expect(result).to.be.fulfilled;
+				return expect(result).to.eventually.be.true;
 			});
 
 			it('including id attributes', async function ()
@@ -347,7 +347,7 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 				document.querySelector('#target').setAttribute('id', 'ignore');
 
 				// Assert.
-				return expect(result).to.be.fulfilled;
+				return expect(result).to.eventually.be.true;
 			});
 
 			it('including miscellaneous attributes', async function ()
@@ -367,7 +367,7 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 				document.querySelector('#target').setAttribute('name', 'ignore');
 
 				// Assert.
-				return expect(result).to.be.fulfilled;
+				return expect(result).to.eventually.be.true;
 			});
 
 			it('including data attributes', async function ()
@@ -387,11 +387,11 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 				document.querySelector('#target').setAttribute('data-attribute', 'ignore');
 
 				// Assert.
-				return expect(result).to.be.fulfilled;
+				return expect(result).to.eventually.be.true;
 			});
 		});
 
-		it('shall return a promise that will be fulfilled when all matching elements are removed from `options.scope`', async function ()
+		it('shall return a promise that will be fulfilled with `true` when all matching elements are removed from `options.scope`', async function ()
 		{
 			// Setup.
 			document.body.innerHTML = `
@@ -402,7 +402,7 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 			`;
 
 			// Act.
-			const result = waitForTheElement('.target', {
+			const result = waitForTheElementToDisappear('.target', {
 				scope : document.querySelector('#parent')
 			});
 
@@ -413,7 +413,7 @@ describe('function waitForTheElementToDisappear(selector, options)', function ()
 			document.querySelector('#target').remove();
 
 			// Assert.
-			return expect(result).to.be.fulfilled;
+			return expect(result).to.eventually.be.true;
 		});
 	});
 });

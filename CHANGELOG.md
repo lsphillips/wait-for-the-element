@@ -2,6 +2,13 @@
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.0] (2021-07-22)
+
+### Changed
+
+- Changed `waitForTheElement()` to return `null` when a matching element is not found. It no longer throws an error.
+- Changed `waitForTheElementToDisappear()` to return a boolean, it will return `true` when no elements are matching or `false` if a match still exsits. It no longer throws an error.
+
 ## [3.0.0] (2021-07-01)
 
 ### Changed

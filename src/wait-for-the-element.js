@@ -75,7 +75,7 @@ export function waitForTheElement (selector, {
 	timeout = 2500, scope = document
 } = {})
 {
-	return new Promise((resolve, reject) =>
+	return new Promise(resolve =>
 	{
 		const element = scope.querySelector(selector);
 
@@ -110,9 +110,7 @@ export function waitForTheElement (selector, {
 		{
 			observer.disconnect();
 
-			reject(
-				new Error(`An element still does not match selector ${selector} after ${timeout} milliseconds.`)
-			);
+			resolve(null);
 
 		}, timeout);
 	});
@@ -124,7 +122,7 @@ export function waitForTheElementToDisappear (selector, {
 	timeout = 2500, scope = document
 } = {})
 {
-	return new Promise((resolve, reject) =>
+	return new Promise(resolve =>
 	{
 		let timer = null;
 
@@ -132,7 +130,7 @@ export function waitForTheElementToDisappear (selector, {
 			scope.querySelector(selector) === null
 		)
 		{
-			resolve();
+			resolve(true);
 
 			return;
 		}
@@ -147,7 +145,7 @@ export function waitForTheElementToDisappear (selector, {
 
 				observer.disconnect();
 
-				resolve();
+				resolve(true);
 			}
 		});
 
@@ -159,9 +157,7 @@ export function waitForTheElementToDisappear (selector, {
 		{
 			observer.disconnect();
 
-			reject(
-				new Error(`An element still matches selector ${selector} after ${timeout} milliseconds.`)
-			);
+			resolve(false);
 
 		}, timeout);
 	});

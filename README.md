@@ -24,15 +24,11 @@ const { waitForTheElement, waitForTheElementToDisappear } = require('wait-for-th
 You can wait for an element to match a provided selector and retrieve it:
 
 ``` js
-let element;
+const element = await waitForTheElement('.target', {
+  timeout : 5000
+});
 
-try
-{
-  element = await waitForTheElement('.target', {
-    timeout : 5000
-  });
-}
-catch (error)
+if (element === null)
 {
   // After 5 seconds, a matching element still doesn't exist.
 }
@@ -45,13 +41,11 @@ catch (error)
 You can wait for all elements to stop matching a provided selector:
 
 ``` js
-try
-{
-  await waitForTheElementToDisappear('.target', {
-    timeout : 5000
-  });
-}
-catch (error)
+const hidden = await waitForTheElementToDisappear('.target', {
+  timeout : 5000
+});
+
+if (!hidden)
 {
   // After 5 seconds, a matching element still exists.
 }
