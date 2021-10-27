@@ -2,6 +2,12 @@
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [4.0.1] (2021-10-27)
+
+### Changed
+
+- Updated the `ElementSearchOptions` TypeScript definition, `scope` is now of type `ParentNode`.
+
 ## [4.0.0] (2021-07-22)
 
 ### Changed

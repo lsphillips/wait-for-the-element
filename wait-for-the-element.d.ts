@@ -15,7 +15,7 @@ export interface ElementSearchOptions
 	 *
 	 * Defaults to `document`.
 	 */
-	scope? : Element;
+	scope? : ParentNode;
 }
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
