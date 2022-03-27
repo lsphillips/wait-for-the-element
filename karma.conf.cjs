@@ -27,7 +27,7 @@ module.exports = function test (config)
 
 		reporters :
 		[
-			'mocha'
+			'spec'
 		],
 
 		browsers :
@@ -43,9 +43,10 @@ module.exports = function test (config)
 			}
 		},
 
-		mochaReporter :
+		specReporter :
 		{
-			showDiff : true
+			maxLogLines    : 10,
+			showSpecTiming : true
 		},
 
 		rollupPreprocessor : buildForTests()
