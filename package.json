@@ -39,7 +39,7 @@
         "chai-as-promised" : "7.1.1",
         "eslint" : "8.23.0",
         "eslint-plugin-import" : "2.26.0",
-        "eslint-plugin-promise" : "6.0.1",
+        "eslint-plugin-promise" : "6.1.1",
         "eslint-config-protect-me-from-my-stupidity" : "9.1.0",
         "karma" : "6.4.0",
         "karma-mocha" : "2.0.1",
