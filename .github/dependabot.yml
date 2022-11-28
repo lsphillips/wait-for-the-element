@@ -10,7 +10,7 @@ updates:
       time: '18:00'
     pull-request-branch-name:
       separator: '-'
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 25
     labels:
       - dependencies
     versioning-strategy: increase-if-necessary
