@@ -2,13 +2,17 @@ name: Build and Test
 
 on:
   push:
+    branches:
+      - master
     paths-ignore:
       - '**.md'
+      - 'LICENSE.txt'
   pull_request:
     branches:
       - master
     paths-ignore:
       - '**.md'
+      - 'LICENSE.txt'
 
 jobs:
 
