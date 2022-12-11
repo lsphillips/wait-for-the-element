@@ -37,7 +37,7 @@
         "mocha" : "10.1.0",
         "chai" : "4.3.7",
         "chai-as-promised" : "7.1.1",
-        "eslint" : "8.28.0",
+        "eslint" : "8.29.0",
         "eslint-plugin-import" : "2.26.0",
         "eslint-plugin-promise" : "6.1.1",
         "eslint-config-protect-me-from-my-stupidity" : "9.1.1",
