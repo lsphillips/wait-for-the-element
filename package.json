@@ -43,7 +43,7 @@
         "eslint-config-protect-me-from-my-stupidity" : "9.1.1",
         "karma" : "6.4.1",
         "karma-mocha" : "2.0.1",
-        "karma-spec-reporter" : "0.0.34",
+        "karma-spec-reporter" : "0.0.35",
         "karma-rollup-preprocessor" : "7.0.8",
         "karma-chrome-launcher" : "3.1.1",
         "@babel/core" : "7.20.5",
