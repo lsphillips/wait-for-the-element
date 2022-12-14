@@ -1,7 +1,7 @@
 # WaitForTheElement
 
 [![Available from NPM](https://img.shields.io/npm/v/wait-for-the-element.svg?maxAge=900)](https://www.npmjs.com/package/wait-for-the-element)
-[![Built using GitHub Action](https://github.com/lsphillips/WaitForTheElement/actions/workflows/build-and-test.yml/badge.svg?branch=master)](https://github.com/lsphillips/WaitForTheElement/actions)
+[![Built using GitHub Action](https://github.com/lsphillips/WaitForTheElement/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/lsphillips/WaitForTheElement/actions)
 
 A utility library that enables you to efficiently wait for an element to appear or disappear.
 
