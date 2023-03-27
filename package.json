@@ -29,7 +29,7 @@
 
     "devDependencies" :
     {
-        "rollup" : "3.20.0",
+        "rollup" : "3.20.2",
         "@rollup/plugin-terser" : "0.4.0",
         "@rollup/plugin-node-resolve" : "15.0.1",
         "@rollup/plugin-commonjs" : "24.0.1",
