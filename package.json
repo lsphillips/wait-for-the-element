@@ -47,7 +47,7 @@
         "karma-rollup-preprocessor" : "7.0.8",
         "karma-chrome-launcher" : "3.2.0",
         "@babel/core" : "7.23.6",
-        "@babel/preset-env" : "7.23.6",
+        "@babel/preset-env" : "7.23.7",
         "timeout-as-promise" : "1.0.0"
     },
 
