@@ -35,7 +35,7 @@
         "@rollup/plugin-commonjs" : "25.0.7",
         "@rollup/plugin-babel" : "6.0.4",
         "mocha" : "10.3.0",
-        "chai" : "4.3.10",
+        "chai" : "4.4.1",
         "chai-as-promised" : "7.1.1",
         "eslint" : "8.57.0",
         "eslint-plugin-import" : "2.29.1",
