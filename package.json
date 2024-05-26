@@ -1,7 +1,7 @@
 {
     "name" : "wait-for-the-element",
 
-    "version" : "4.0.1",
+    "version" : "4.0.2",
 
     "type" : "module",
 
@@ -20,11 +20,11 @@
         "selector"
     ],
 
-    "homepage" : "https://github.com/lsphillips/WaitForTheElement",
+    "homepage" : "https://github.com/lsphillips/wait-for-the-element",
 
     "bugs" :
     {
-        "url" : "https://github.com/lsphillips/WaitForTheElement/issues"
+        "url" : "https://github.com/lsphillips/wait-for-the-element/issues"
     },
 
     "devDependencies" :
@@ -74,7 +74,7 @@
     "repository" :
     {
         "type" : "git",
-        "url" : "https://github.com/lsphillips/WaitForTheElement.git"
+        "url" : "https://github.com/lsphillips/wait-for-the-element.git"
     },
 
     "license" : "MIT",
