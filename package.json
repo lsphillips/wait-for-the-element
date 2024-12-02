@@ -41,7 +41,7 @@
         "eslint-plugin-import" : "2.31.0",
         "eslint-plugin-promise" : "6.6.0",
         "@stylistic/eslint-plugin-js" : "1.8.1",
-        "eslint-config-protect-me-from-my-stupidity" : "10.1.1",
+        "eslint-config-protect-me-from-my-stupidity" : "11.1.0",
         "karma" : "6.4.4",
         "karma-mocha" : "2.0.1",
         "karma-spec-reporter" : "0.0.36",
