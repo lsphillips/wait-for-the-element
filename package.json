@@ -34,7 +34,7 @@
         "@rollup/plugin-node-resolve" : "15.3.0",
         "@rollup/plugin-commonjs" : "28.0.2",
         "@rollup/plugin-babel" : "6.0.4",
-        "mocha" : "10.8.2",
+        "mocha" : "11.1.0",
         "chai" : "5.2.0",
         "chai-as-promised" : "8.0.1",
         "eslint" : "8.57.1",
