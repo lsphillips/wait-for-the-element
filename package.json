@@ -29,23 +29,23 @@
 
     "devDependencies" :
     {
-        "rollup" : "4.17.2",
+        "rollup" : "4.38.0",
         "@rollup/plugin-terser" : "0.4.4",
-        "@rollup/plugin-node-resolve" : "15.2.3",
-        "@rollup/plugin-commonjs" : "25.0.7",
+        "@rollup/plugin-node-resolve" : "16.0.1",
+        "@rollup/plugin-commonjs" : "28.0.3",
         "@rollup/plugin-babel" : "6.0.4",
-        "mocha" : "10.4.0",
-        "chai" : "4.4.1",
-        "chai-as-promised" : "7.1.2",
+        "mocha" : "11.1.0",
+        "chai" : "5.2.0",
+        "chai-as-promised" : "8.0.1",
         "eslint" : "9.23.0",
         "eslint-config-protect-me-from-my-stupidity" : "15.0.0",
-        "karma" : "6.4.3",
+        "karma" : "6.4.4",
         "karma-mocha" : "2.0.1",
         "karma-spec-reporter" : "0.0.36",
         "karma-rollup-preprocessor" : "7.0.8",
         "karma-chrome-launcher" : "3.2.0",
-        "@babel/core" : "7.24.5",
-        "@babel/preset-env" : "7.24.5",
+        "@babel/core" : "7.26.10",
+        "@babel/preset-env" : "7.26.9",
         "timeout-as-promise" : "1.0.0"
     },
 
