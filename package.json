@@ -29,19 +29,16 @@
 
     "devDependencies" :
     {
-        "rollup" : "4.37.0",
+        "rollup" : "4.38.0",
         "@rollup/plugin-terser" : "0.4.4",
-        "@rollup/plugin-node-resolve" : "15.3.0",
+        "@rollup/plugin-node-resolve" : "16.0.1",
         "@rollup/plugin-commonjs" : "28.0.3",
         "@rollup/plugin-babel" : "6.0.4",
-        "mocha" : "10.8.2",
+        "mocha" : "11.1.0",
         "chai" : "5.2.0",
         "chai-as-promised" : "8.0.1",
-        "eslint" : "8.57.1",
-        "eslint-plugin-import" : "2.31.0",
-        "eslint-plugin-promise" : "6.6.0",
-        "@stylistic/eslint-plugin-js" : "1.8.1",
-        "eslint-config-protect-me-from-my-stupidity" : "10.1.1",
+        "eslint" : "9.23.0",
+        "eslint-config-protect-me-from-my-stupidity" : "15.0.0",
         "karma" : "6.4.4",
         "karma-mocha" : "2.0.1",
         "karma-spec-reporter" : "0.0.36",
@@ -81,7 +78,7 @@
 
     "scripts" :
     {
-        "test:lint" : "eslint \"**/*.js\" --ignore-path .gitignore",
+        "test:lint" : "eslint \"**/*.js\"",
         "test:unit" : "karma start karma.conf.cjs --single-run",
         "test" : "npm run test:lint && npm run test:unit",
         "build" : "rollup --config",
