@@ -31,22 +31,12 @@
     {
         "rollup" : "4.38.0",
         "@rollup/plugin-terser" : "0.4.4",
-        "@rollup/plugin-node-resolve" : "16.0.1",
-        "@rollup/plugin-commonjs" : "28.0.3",
         "@rollup/plugin-babel" : "6.0.4",
-        "mocha" : "11.1.0",
-        "chai" : "5.2.0",
-        "chai-as-promised" : "8.0.1",
+        "jsdom" : "26.0.0",
         "eslint" : "9.23.0",
         "eslint-config-protect-me-from-my-stupidity" : "15.0.0",
-        "karma" : "6.4.4",
-        "karma-mocha" : "2.0.1",
-        "karma-spec-reporter" : "0.0.36",
-        "karma-rollup-preprocessor" : "7.0.8",
-        "karma-chrome-launcher" : "3.2.0",
         "@babel/core" : "7.26.10",
-        "@babel/preset-env" : "7.26.9",
-        "timeout-as-promise" : "1.0.0"
+        "@babel/preset-env" : "7.26.9"
     },
 
     "main" : "wait-for-the-element.cjs",
@@ -79,7 +69,7 @@
     "scripts" :
     {
         "test:lint" : "eslint \"**/*.js\"",
-        "test:unit" : "karma start karma.conf.cjs --single-run",
+        "test:unit" : "node --test",
         "test" : "npm run test:lint && npm run test:unit",
         "build" : "rollup --config",
         "prepack" : "npm run test && npm run build"
