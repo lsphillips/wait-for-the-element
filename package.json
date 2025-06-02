@@ -33,7 +33,7 @@
         "@rollup/plugin-terser" : "0.4.4",
         "@rollup/plugin-babel" : "6.0.4",
         "jsdom" : "26.1.0",
-        "eslint" : "9.27.0",
+        "eslint" : "9.28.0",
         "eslint-config-protect-me-from-my-stupidity" : "15.0.0",
         "@babel/core" : "7.27.4",
         "@babel/preset-env" : "7.27.2"
