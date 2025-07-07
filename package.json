@@ -35,7 +35,7 @@
         "jsdom" : "26.1.0",
         "eslint" : "9.29.0",
         "eslint-config-protect-me-from-my-stupidity" : "15.0.0",
-        "@babel/core" : "7.27.7",
+        "@babel/core" : "7.28.0",
         "@babel/preset-env" : "7.27.2"
     },
 
